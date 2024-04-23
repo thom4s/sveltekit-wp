@@ -4,6 +4,8 @@ Everything you need to build a Svelte + Headless Wordpress, powered by [`create-
 
 ## Creating a project
 
+* npm 18 minimum
+
 1. Clone the repo
 2. Install a WP instance somewhere
 2. Duplicate .env.EXAMPLE and add yours params
