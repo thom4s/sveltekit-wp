@@ -1,0 +1,76 @@
+/*--------------------------------------------------------------
+Colors
+--------------------------------------------------------------*/
+
+$black: #000000;
+$white: #ffffff;
+$gray: #505050;
+$light_gray: #bfbfbf;
+$red: #DA1E28;
+$red-2: #A2191F;
+
+$blue: #0064C0;
+$blue-light: #4A6783;
+$blue-soft: #F1F3FD; 
+$blue-dark: #002851;
+
+$beige-soft: #f6eeee;
+
+$light-bg: $blue-soft;
+$dark-bg: $blue-dark;
+// $mid-bg: $gray;
+
+$light-font: $blue-light;
+$dark-font: $blue-dark;
+$mid-font: $blue;
+
+$primary-color: $blue;
+$secondary-color: $red;
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+
+$font-family: 'Poppins', sans-serif;
+$font-color: $black;
+
+$font-r:  400;
+$font-m:  500;
+$font-sb: 600;
+$font-b:  700;
+
+/*--------------------------------------------------------------
+Spaces
+--------------------------------------------------------------*/
+
+$space-xxs:  4px;
+$space-xs:   8px;
+$space-s:   16px;
+$space-m:   24px;
+$space-l:   40px;
+$space-xl:  56px;
+$space-xxl: 80px;
+
+/*--------------------------------------------------------------
+Radius
+--------------------------------------------------------------*/
+
+$radius-s:  3px;
+$radius-m:  5px;
+$radius-l: 10px;
+
+/*--------------------------------------------------------------
+Responsive
+--------------------------------------------------------------*/
+
+$cols: 12;
+
+
+$mobile_first:         true !default;
+$minimal_breakpoint:   0px !default;
+$mobile_breakpoint:    580px !default;
+$tablet_breakpoint:    820px !default;
+$bigtablet_breakpoint: 1200px !default; 
+$destktop_breakpoint:  1660px !default; 
+
+$max-width: 1660px;

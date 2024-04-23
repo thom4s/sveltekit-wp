@@ -1,0 +1,60 @@
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/*--------------------------------------------------------------
+Grid
+--------------------------------------------------------------*/
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat($cols, minmax(0, calc(1fr - 20px) ) );
+    grid-template-columns: repeat($cols, 1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 40px;
+}
+
+
+.m_last {
+    grid-row-end: $cols;
+}
+
+
+[class$='column'] {
+    max-width: 100%;
+    display: block;
+}
+
+
+@mixin parse-columns($suffix: ''){
+
+    .#{$suffix}_0col {
+        display: none;
+    }
+    .#{$suffix}_hide {
+        display: none;
+    }        
+    @for $i from 1 through $cols {
+
+        .#{$suffix}_#{$i}column {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+
+@include min(minimal) {
+    @include parse-columns('s');
+}
+@include min(tablet) {
+    @include parse-columns('m');
+}
+@include min(bigtablet) {
+    @include parse-columns('l');
+}
