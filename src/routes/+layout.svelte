@@ -1,4 +1,5 @@
 <script>
+    import SEO from '$lib/parts/SEO/index.svelte';
     import { website } from '$lib/config/website.js'
 
     import Header from "$lib/parts/Header.svelte";
@@ -7,10 +8,7 @@
 
     export let data;
     $: ({menuItems, menuItemsSecondary, seoConfig } = data)
-
-    //$: console.log('seoConfig: ', seoConfig)
-    //$: console.log('website config: ', $website)
-
+    
     $: {
         $website.author = seoConfig.seo.schema.companyName
         $website.ogLanguage = seoConfig.seo.schema.inLanguage
@@ -27,6 +25,8 @@
         $website.twitterUsername = seoConfig.seo.social.twitter.username
     }
 </script>
+
+<SEO />
 
 <Header {menuItems} {menuItemsSecondary}/>
 

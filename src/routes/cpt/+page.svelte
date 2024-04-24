@@ -1,8 +1,10 @@
 <script lang="ts">
+    import { page } from "$app/stores";
     import BlockProjet from "$lib/parts/BlockProjet.svelte";
 	import { fade } from 'svelte/transition';
     
     export let data: {
+        page: Promise<void>;
         cpt: Promise<void>;
     }
     $: ({cpt, taxonomie} = data)
@@ -23,7 +25,7 @@
 
 <div class="container">
 
-    <h1>My Custom Post Type Archives</h1>
+    <h1>{page.title}</h1>
 
     <div class="grid">
 

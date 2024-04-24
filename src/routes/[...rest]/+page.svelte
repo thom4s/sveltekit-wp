@@ -1,6 +1,4 @@
 <script lang="ts">
-    import SEO from '$lib/SEO/index.svelte';
-    import { website } from '$lib/config/website.js'
 
     export let data: {
         page: Promise<void>;

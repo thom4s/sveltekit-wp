@@ -4,7 +4,7 @@ export const prerender = true;
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = function get({ setHeaders }) {
-	const { backgroundColor, description, siteShortTitle, siteTitle, themeColor } = website;
+	const { backgroundColor, description, siteShortTitle, siteTitle, themeColor } = $website;
 
 	const manifest = {
 		name: siteTitle,

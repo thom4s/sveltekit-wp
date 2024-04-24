@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 
 export const prerender = true;
 
-const { siteUrl } = website;
+const { siteUrl } = $website;
 
 const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
