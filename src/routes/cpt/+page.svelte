@@ -33,18 +33,13 @@
             <div class="filters">
 
                 <p class="filter">
-                    <strong>Secteurs</strong>
-                    {#each secteurs.nodes as t }
+                    <strong>taxonomie</strong>
+                    {#each taxonomie.nodes as t }
                         <span on:click={ (e) => filter(e) } class:active={filters.includes(t.name)}>{t.name}</span>
                     {/each}
                 </p>
 
-                <p class="filter">
-                    <strong>Savoir Faires</strong>
-                    {#each savoirfaires.nodes as t }
-                        <span on:click={ (e) => filter(e) } class:active={filters.includes(t.name)}>{t.name}</span>
-                    {/each}
-                </p>
+
 
             </div>
         </div>

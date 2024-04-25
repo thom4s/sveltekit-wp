@@ -5,10 +5,10 @@
 	import website from '$lib/config/website';
 	import { VERTICAL_LINE_ENTITY } from '$lib/constants/entities';
 
-	import ogSquareImageSrc from '$lib/assets/anha_logo.png';
-	import ogImageSrc from '$lib/assets/anha_logo.png';
-	import twitterImageSrc from '$lib/assets/anha_logo.png';
-	import featuredImageSrc from '$lib/assets/anha_logo.png';
+	import ogSquareImageSrc from '$lib/assets/logo.png';
+	import ogImageSrc from '$lib/assets/logo.png';
+	import twitterImageSrc from '$lib/assets/logo.png';
+	import featuredImageSrc from '$lib/assets/logo.png';
 
 	import OpenGraph from './OpenGraph.svelte';
 	import SchemaOrg from './SchemaOrg.svelte';
@@ -34,16 +34,15 @@
 	export let breadcrumbs = [];
 	export let entityMeta = null;
 
-	$: title = $page.data.page.title;
-	$: metadescription = $page.data.page.seo.metaDesc;
-	$: keywords = $page.data.page.seo.metaKeywords;
-	$: slug = $page.data.page.uri;
-	$: datePublished = $page.data.page.date;
-	$: lastUpdated = $page.data.page.modified;
-	$: timeToRead = $page.data.page.timeToRead;
+	$: title = $page.data.page ? $page.data.page.title : '';
+	$: metadescription = $page.data.page.seo ? $page.data.page.seo.metaDesc : '';
+	$: keywords = $page.data.page.seo ? $page.data.page.seo.metaKeywords : '';
+	$: slug = $page.data.page ? $page.data.page.uri : '';
+	$: datePublished = $page.data.page ? $page.data.page.date : '';
+	$: lastUpdated = $page.data.page ? $page.data.page.modified : '';
+	$: timeToRead = $page.data.page ? $page.data.page.timeToRead : '';
 
-	const defaultAlt =
-		'Your Website';
+	const defaultAlt = 'Your Website';
 
 	export let featuredImage = {
 		url: featuredImageSrc,
