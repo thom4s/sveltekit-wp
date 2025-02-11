@@ -29,17 +29,8 @@
             {:else if page?.template?.templateName === 'Actualités'}
                 <News {page} {posts} />
 
-            {:else if page?.template?.templateName === 'Modèle Sur 2 Colonnes'}
-                <SplitScreen {page} />
-
-            {:else if page?.template?.templateName === 'Modèle Savoir Faire'}
-                <Expertise {page} />
-
             {:else if page?.template?.templateName === 'Page Contact'}
                 <Contact {page} />    
-
-            {:else if page?.template?.templateName === 'Page Presse'}
-                <Presse {page} {posts} />
 
             {:else}
                 <Page {page} {posts} />

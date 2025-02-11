@@ -45,13 +45,13 @@ export async function getProjectBySlug( slug = '' ) {
 
 export async function getAllProjects( ) {
     
-    const cpt = await fetch(PUBLIC_API_URL, {
+    const projects = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             query: `
                 {
-                    cpt(first: 5, after: "endCursorFromPreviousRequestGoesHere") {
+                    projects(first: 5, after: "endCursorFromPreviousRequestGoesHere") {
                         nodes {
                             excerpt
                             id
@@ -65,10 +65,10 @@ export async function getAllProjects( ) {
         })
         .then(res => res.json())
         .then(res => {
-            return res.data.cpt
+            return res.data.projects
         });
 
-    return cpt;
+    return projects;
 }
 
 

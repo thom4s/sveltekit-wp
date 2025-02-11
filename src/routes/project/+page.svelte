@@ -5,9 +5,9 @@
     
     export let data: {
         page: Promise<void>;
-        cpt: Promise<void>;
+        projects: Promise<void>;
     }
-    $: ({cpt, taxonomie} = data)
+    $: ({projects, taxonomie} = data)
     
     let filters = [];
 
@@ -16,10 +16,10 @@
         filters = [e.target.innerText]
     }
 
-    $: visibleCpt = filters.length > 0 ?
-        cpt.nodes.filter( cpt => {
-			return filters.includes(cpt.informationsProjet.savoirFaire?.nodes[0].name) || filters.includes(cpt.informationsProjet.secteur?.nodes[0].name)
-		}) : cpt.nodes;
+    $: visibleProjects = filters.length > 0 ?
+        projects.nodes.filter( p => {
+			return filters.includes(p.informationsProjet.savoirFaire?.nodes[0].name) || filters.includes(p.informationsProjet.secteur?.nodes[0].name)
+		}) : p.nodes;
 
 </script>
 
@@ -45,7 +45,7 @@
         </div>
 
         <div class="s_8column">
-            {#each visibleCpt as cpt }
+            {#each visibleProjects as cpt }
                 <BlockProject {cpt}/>
             {:else}
                 <p in:fade={{ delay: 200, duration: 200 }}>Aucun résultat</p>
