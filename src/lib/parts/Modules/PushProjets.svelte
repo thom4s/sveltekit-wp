@@ -93,10 +93,10 @@
         @include max(desktop) {
             width: 29%;
         }
-        @include max(bigtablet) {
+        @include max(large) {
             width: 30%;
         }
-        @include max(tablet) {
+        @include max(medium) {
             width: 80%;
         }
         @include min(desktop) {
@@ -121,7 +121,7 @@
         padding-bottom: 30px;
         margin-bottom: 30px;
         align-items: flex-end;
-        @include max(tablet) {
+        @include max(medium) {
             margin-left: 5vw;
             width: 95%;
         }

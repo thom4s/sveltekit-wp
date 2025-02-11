@@ -1,0 +1,38 @@
+@use './global/colors' as *;
+
+
+// Adjust header position when admin bar is displayed
+body.admin-bar .site-header {
+    top: 32px;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $white;
+    border-bottom: 1.5px solid $black;
+    z-index: 50;
+    transition: transform .3s;
+
+    .header-top {
+        background-color: rgb(210, 210, 210);
+        padding: 10px 0;
+    }
+
+    .header-bottom {
+        padding: 10px 0;
+        .site-logo {
+            width: 60px;
+        }
+    }
+
+
+    .menu-item {
+        a {
+            text-decoration: none;
+            color: $black;
+        }
+    }
+}

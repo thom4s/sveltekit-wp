@@ -32,7 +32,7 @@
         }
 
         .grid {
-            @include max(tablet) {
+            @include max(medium) {
                 row-gap: 60px;
                 column-gap: 0;
             }

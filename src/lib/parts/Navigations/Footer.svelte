@@ -33,28 +33,28 @@
 
 <style lang="scss">
     footer {
-        margin-bottom: $gutter * 2;
+        margin-bottom: calc( var(--space-l) * 2 );
         position: relative;
         z-index: 9;
         background-color: $white;
-        padding-top: $space-l;
+        padding-top: var(--space-l);
 
-        @include min(bigtablet) {
-            margin-top: $gutter;
+        @include min(large) {
+            margin-top: var(--space-l) ;
         }
-        @include max(bigtablet) {
-            margin-top: $gutter * 1.5;
+        @include max(large) {
+            margin-top: calc( var(--space-l) * 1.5 );
         }
     }
     .container {
         border-top: 1px solid;
-        padding-top: $space-s
+        padding-top: var(--space-s)
     }
     nav {
         padding: 15px 0;
     }
     .nav_group {
-        @include max(bigtablet) {
+        @include max(large) {
             flex-direction: column;
             gap: 40px;
         }

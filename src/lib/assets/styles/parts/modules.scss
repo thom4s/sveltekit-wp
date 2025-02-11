@@ -1,0 +1,107 @@
+
+
+
+/*------------------------------------*\
+    MODULES BORDER & BGs
+\*------------------------------------*/
+
+section[class*="mod"] {
+    &.-bordered {
+        border: 50px solid $accent-color;
+        padding: var(--space-xxl) 0;
+
+    }
+    &.-backgrounded:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*------------------------------------*\
+    MOD CAROUSEL
+\*------------------------------------*/
+
+.mod_carousel {
+    &.-bg {
+        background-color: $gray-light;
+        padding: var(--space-xl) 0;
+    }
+    &.swiper {
+        // @include wrapper-padding;
+
+        @include min(wide) {
+            padding-left: calc( calc( 100vw - var(--max-width) ) / 2);
+            padding-right: calc( calc( 100vw - var(--max-width) ) / 2);
+        }
+    }
+}
+
+/*------------------------------------*\
+    MOD QUOTE
+\*------------------------------------*/
+
+.mod_quote {
+    text-align: center;
+    @include max(medium) {
+        margin: var(--space-xxl) 0;
+    }
+    @include min(medium) {
+        margin: calc(var(--space-xxl) * 2) 0;
+    }
+}
+
+/*------------------------------------*\
+    MOD NEWS
+\*------------------------------------*/
+
+.mod_news {
+    .mod_publication {
+        .img-container {
+            @include max(medium) {
+                order: -1;
+                margin-bottom: var(--space-xl);
+            }
+        }
+    }
+
+    img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+    }
+}
+
+/*------------------------------------*\
+    MOD visuel-text
+\*------------------------------------*/
+
+.mod_visuel-text {
+    .mod_content {
+        max-width: 800px;
+    }
+}
+
+/*------------------------------------*\
+    MOD VISUAL GRID (MEDIAS)
+\*------------------------------------*/
+
+.mod_visual-grid {
+    .visual-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+
+        .img-container {
+            flex-grow: 1;
+            height: 500px;
+            max-height: 40vh;
+            
+            img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

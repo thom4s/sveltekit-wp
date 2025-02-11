@@ -6,9 +6,10 @@ const config = {
 	preprocess: preprocessor({
 		scss: {
 			prependData: `
-				@import './src/lib/assets/scss/config/variables.scss';
-				@import './src/lib/assets/scss/config/mixins.scss';
-				@import './src/lib/assets/scss/config/responsive.scss';
+				@use './src/lib/assets/styles/global/colors.scss' as *;
+				@use './src/lib/assets/styles/global/generic.scss' as *;
+				@use './src/lib/assets/styles/global/mixins.scss' as *;
+				@use './src/lib/assets/styles/global/typography.scss' as *;
 			`
 		}
 	}),	

@@ -63,10 +63,10 @@
             align-items: flex-end;
 
             img {
-                @include max(bigtablet) {
+                @include max(large) {
                     max-width: 100px;
                 }
-                @include min(bigtablet) {
+                @include min(large) {
                     max-width: 150px;
                 }
             }
@@ -76,10 +76,10 @@
                 text-transform: uppercase;
                 line-height: 1.2;
                 font-family: "Gotham";
-                @include max(bigtablet) {
+                @include max(large) {
                     font-size: 1rem;
                 }
-                @include min(bigtablet) {
+                @include min(large) {
                     font-size: 1.4rem;
                 }
             }

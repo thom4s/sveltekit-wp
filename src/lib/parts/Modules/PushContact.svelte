@@ -56,7 +56,7 @@
         position: relative;
         z-index: 9;
         background-color: $white;
-        padding-top: $space-l;
+        padding-top: var(--space-l);
 
         .mod_actions {
             display: flex;

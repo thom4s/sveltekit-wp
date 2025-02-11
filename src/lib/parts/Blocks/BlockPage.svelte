@@ -50,17 +50,17 @@ img {
         padding-left: 120px;
         padding-right: 120px;
     }
-    @include max(bigtablet) {
-        padding-left: $gutter * 2;
-        padding-right: $gutter * 2;
+    @include max(large) {
+        padding-left: var(--space-l) * 2;
+        padding-right: var(--space-l) * 2;
     }
-    @include max(tablet) {
+    @include max(medium) {
         padding-left: 5vw;
         padding-right: 5vw;
     }
 }
 .bloc_media_outer {
-    @include max(bigtablet) {
+    @include max(large) {
         order: 2
     }
 }

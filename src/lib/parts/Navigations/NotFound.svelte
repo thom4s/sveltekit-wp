@@ -41,7 +41,7 @@
         align-items: center;
         column-gap: 0;
 
-        @include max(tablet) {
+        @include max(medium) {
             @include container;
             column-gap: 0;
         }
@@ -51,12 +51,12 @@
         width: 100%;
     }
     .stage_left {
-        @include max(tablet) {
+        @include max(medium) {
             padding-bottom: 0;
         }
     }
     .stage_right {
-        @include max(tablet) {
+        @include max(medium) {
             padding-top: 0;
         }
     }
@@ -70,15 +70,15 @@
             padding-right: 5vw;
             padding-left: 5vw;
         }       
-        @include max(tablet) {
+        @include max(medium) {
             padding-right: 0;
             padding-left: 0;
         }
     }
     .page_actions {
-        @include max(tablet) {
-            gap: $gutter;
-            margin-top: $gutter;
+        @include max(medium) {
+            gap: var(--space-l);
+            margin-top: var(--space-l);
         }
     }
 </style>

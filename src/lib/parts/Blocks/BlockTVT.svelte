@@ -52,10 +52,10 @@
         justify-content: space-between;
         width: 100%;
 
-        @include min(tablet) {
+        @include min(medium) {
             margin-bottom: $space-xxl * 2;
         }
-        @include max(tablet) {
+        @include max(medium) {
             margin-bottom: $space-xl * 2;
         }
         img {
@@ -65,29 +65,29 @@
 
     :global(.media-full img) {
         width: 100% !important;
-        @include min(bigtablet) {
+        @include min(large) {
             max-height: 80vh;
         }
     }
 
     :global(.media-full .wrapper_txt) {
-        @include min(tablet) {
+        @include min(medium) {
             padding-bottom: $space-xl;
         }
-        @include max(tablet) {
+        @include max(medium) {
             padding-bottom: $space-m;
         }
     }
     .media-left {
         display: flex;
 
-        @include max(tablet) {
+        @include max(medium) {
             flex-direction: column;
             .wrapper_txt {
                 margin-bottom: $space-m;
             }
         }
-        @include min(tablet) {
+        @include min(medium) {
             flex-direction: row-reverse;
             align-items: center;
 
@@ -107,13 +107,13 @@
         display: flex;
         flex-direction: row;
 
-        @include max(tablet) {
+        @include max(medium) {
             flex-direction: column;
             .wrapper_txt {
                 margin-bottom: $space-m;
             }
         }
-        @include min(tablet) {
+        @include min(medium) {
             flex-direction: row;
             align-items: center;
 

@@ -75,15 +75,15 @@
 <style lang="scss">
     .mod_pushprojects {
 
-        @include max(bigtablet) {
-            padding: $gutter;
+        @include max(large) {
+            padding: var(--space-l);
         }
-        @include min(bigtablet) {
-            padding: $gutter * 2 $gutter * 2 240px $gutter * 2;
+        @include min(large) {
+            padding: var(--space-l) * 2 var(--space-l) * 2 240px var(--space-l) * 2;
         }
         .mod_action {
             border-top: 1px solid black;
-            padding-top: $space-s;
+            padding-top: var(--space-s);
         }
     }
     

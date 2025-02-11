@@ -14,10 +14,10 @@ export const device = derived([width, mobile], ([width, mobile]) => {
     if (width > 1000 || (!browser && !mobile)) {
         //then we're on desktop
         return 'desktop';
-    // if width is >420 (px) then we're on the browser and we're on a tablet
+    // if width is >420 (px) then we're on the browser and we're on a medium
     } else if (width > 580) {
-        // we're on a tablet
-        return 'tablet';
+        // we're on a medium
+        return 'medium';
     } else {
         // if none of the previous conditions were satisfied, we're either not on a device >420px, 
         // or we're on the server, and a mobile view has been requested

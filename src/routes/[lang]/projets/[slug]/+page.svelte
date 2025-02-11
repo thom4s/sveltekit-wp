@@ -250,11 +250,11 @@
             padding-right: $space-xl;
             padding-left: 5vw;
         }
-        @include max(bigtablet) {
-            padding-right: $gutter;
-            padding-left: $gutter;
+        @include max(large) {
+            padding-right: var(--space-l);
+            padding-left: var(--space-l);
         }        
-        @include max(tablet) {
+        @include max(medium) {
             padding-right: 0;
             padding-left: 0;
         }
@@ -269,18 +269,18 @@
     }
 
     .project_action {
-        @include min(tablet) {
+        @include min(medium) {
             margin-bottom: $space-xxl;
 
         }
-        @include max(tablet) {
+        @include max(medium) {
             padding-right: $space-m;
             padding-left: $space-m;
-            margin-bottom: $space-l;
+            margin-bottom: --var(--space-l);
         }
     }
     .project_title {
-        @include max(tablet) {
+        @include max(medium) {
             padding-right: $space-m;
             padding-left: $space-m;
         }
@@ -288,13 +288,13 @@
 
     .project_metadata {
         margin-bottom: $space-xxl;
-        @include max(tablet) {
+        @include max(medium) {
             padding-right: $space-m;
             padding-left: $space-m;
         }
         p {
             border-top: 1px solid;
-            padding: $space-s 0;
+            padding: var(--space-s) 0;
             margin: 0;
             display: flex;
             justify-content: space-between;
@@ -303,7 +303,7 @@
     }
     .project_content {
         margin-bottom: $space-xxl;
-        @include max(tablet) {
+        @include max(medium) {
             padding-right: $space-m;
             padding-left: $space-m;
         }
@@ -315,12 +315,12 @@
         align-items: center;
         margin-bottom: $space-xl;
         &.s_hide {
-            @include max(tablet) {
+            @include max(medium) {
                 display: none;
             } 
         }
         &.m_hide {
-            @include min(tablet) {
+            @include min(medium) {
                 display: none;
             } 
         }
@@ -343,7 +343,7 @@
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;
 
-        @include max(bigtablet) {
+        @include max(large) {
             display: none;
         }
     }
@@ -367,12 +367,12 @@
     
 
     [data-design="couple"] {
-        gap: $space-l;
-
-        @include min(tablet) {
+        gap: --var(--space-l);
+        
+        @include min(medium) {
             height: 75vh;
         }        
-        @include max(tablet) {
+        @include max(medium) {
             height: 40vh;
         }
         .media_outer:first-child {

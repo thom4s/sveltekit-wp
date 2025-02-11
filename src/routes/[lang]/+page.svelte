@@ -97,7 +97,7 @@
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;
 
-        @include max(bigtablet) {
+        @include max(large) {
             display: none;
         }
     }

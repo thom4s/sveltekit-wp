@@ -193,10 +193,10 @@
     }
 
     .container {
-        @include min(tablet) {
-            margin-top: $space-l + 5;
+        @include min(medium) {
+            margin-top: var(--space-l) + 5;
         }
-        @include max(tablet) {
+        @include max(medium) {
             margin-top: $space-m;
         }
         
@@ -230,14 +230,14 @@
             z-index: 10;
         }
 
-        @include max(bigtablet) {
+        @include max(large) {
             border-bottom: 1px solid black;
             column-gap: 0;
         }
     }
     .menuOverlay {
 
-        @include max(bigtablet) {
+        @include max(large) {
             right: auto;
             left: 0;
             transform: translateX(-110vw);
@@ -252,7 +252,7 @@
         display: flex;
         gap: 10px;
 
-        @include min(bigtablet) {
+        @include min(large) {
             display: none;
         }
     }
@@ -291,17 +291,17 @@
         justify-content: center;
         gap: 15px;
 
-        @include max(bigtablet) {
+        @include max(large) {
             flex-direction: column;
             align-items: flex-start;
-            margin-top: $gutter;
+            margin-top: var(--space-l);
         }
 
         & > div {
             display: flex;
             justify-content: center;
             gap: 15px; 
-            @include max(bigtablet) {
+            @include max(large) {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -314,14 +314,14 @@
     }
 
     .btn_outer {
-        @include max(bigtablet) {
+        @include max(large) {
             width: 100%;
             margin-bottom: $space-m;
             & > * {
                 flex: 0 0 auto;
             }
         }
-        @include min(bigtablet) {
+        @include min(large) {
             display: none;
         }
 

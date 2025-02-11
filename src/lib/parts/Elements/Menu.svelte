@@ -68,10 +68,10 @@ ul {
     padding: 0;
     position: relative;
 
-    @include max(bigtablet) {
+    @include max(large) {
         gap: 40px;
     }
-    @include min(bigtablet) {
+    @include min(large) {
         gap: 30px;
     }
     
@@ -105,7 +105,7 @@ ul {
 
     }
 
-    @include max(bigtablet) {
+    @include max(large) {
         flex-direction: column;
         align-items: flex-start;
 

@@ -156,12 +156,12 @@
     .block_post {
 
         &:not(.module):nth-child(odd) .half.texts {
-            @include min(tablet) {
+            @include min(medium) {
                 order: -1;
             }
         }
         .half.texts {
-            @include max(tablet) {
+            @include max(medium) {
                 order: -1;
             }
         }
@@ -172,13 +172,13 @@
             }
         }
         .half.media {
-            @include min(tablet) {
+            @include min(medium) {
                 width: 50%;
                 flex: 1 1 50%;
             }
         }
         .half.texts {
-            @include min(tablet) {
+            @include min(medium) {
                 width: 50%;
                 flex: 1 1 50%;
             }
@@ -217,7 +217,7 @@
                 transition-property: opacity;
                 position: absolute;
                 z-index: 1;
-                background-color: $light-bg;
+                background-color: $gray-light;
                 border-radius: 50%;
                 width: 35px;
                 aspect-ratio: 1/1;
@@ -264,7 +264,7 @@
     }
 
     .block_inner {
-        @include max(tablet) {
+        @include max(medium) {
             flex-direction: column;
         }
     }

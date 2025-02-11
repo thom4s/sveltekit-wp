@@ -27,10 +27,10 @@
 <style lang="scss">
     .module {
 
-        @include max(bigtablet) {
+        @include max(large) {
             margin-bottom: $space-xl;
         }
-        @include min(bigtablet) {
+        @include min(large) {
             margin-bottom: $space-wide;
         }
     }

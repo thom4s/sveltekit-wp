@@ -1,0 +1,80 @@
+@use "./global/colors" as *;
+
+
+/*------------------------------------*\
+    BUTTONS
+\*------------------------------------*/
+
+.btn {
+    font-size: 16px;
+    transition: 0.3s;
+    text-decoration: none;
+
+    &.-primary {
+        background-color: $gray;
+        color: $white;
+        padding: 0.5em 1em;
+        border: 2px solid $gray;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: $white;
+            color: $gray;
+        }
+    }
+
+    &.-filter {
+        padding: 1em 2em .9em 2em;
+        border: 2px solid $gray;
+        background-color: $white;
+        border-radius: 50px;
+
+        &.-active {
+            background-color: $gray;
+            color: $white;
+        }
+    }
+}
+
+
+/*------------------------------------*\
+    NAVIGATION LINKS
+\*------------------------------------*/
+
+.pagination {
+
+    a {
+        text-decoration: none;
+    }
+    .page-numbers {
+        border-radius: 50%;
+        border: 1px solid $gray;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .current {
+        background-color: $gray;
+        color: white;
+    }
+    &.hidden {
+        display: none;
+    }
+}
+
+/*------------------------------------*\
+    PAGINATION
+\*------------------------------------*/
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin: 40px 0;
+    
+    .page-numbers:not(.current) {
+        color: $gray;
+    }
+}

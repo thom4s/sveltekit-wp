@@ -145,15 +145,15 @@
         right: 0;
         left: 0;
         transform: translateY(0);
-        background-color: $light-bg;
+        background-color: $gray-light;
         z-index: 9;
         transition: transform .2s;
         max-width: 100vw;
 
-        @include min(bigtablet) {
+        @include min(large) {
             padding: 32px 0;
         }
-        @include max(bigtablet) {
+        @include max(large) {
             padding: 26px 0;
         }
     }
@@ -187,10 +187,10 @@
 
     .mobileContainer {
 
-        @include min(bigtablet) {
+        @include min(large) {
             display:  none;
         }
-        @include max(bigtablet) {
+        @include max(large) {
             padding: 0 5vw;
             display: flex;
             justify-content: space-between;
@@ -203,7 +203,7 @@
             border: none;
             cursor: pointer;
             z-index: 999;
-            @include min(bigtablet) {
+            @include min(large) {
                 display: none;
             }
         }
@@ -215,7 +215,7 @@
 
         z-index: 999;
 
-        @include max(bigtablet) {
+        @include max(large) {
             transition: transform .5s;
             transform: translateX(110vw);
             position: fixed;
@@ -244,14 +244,14 @@
             .menu-link {
                 position: relative;
                 display: inline-block;
-                padding: $space-xs 0;
+                padding: var(--space-xs) 0;
             }
 
             .brand_logo {
                 display: none;
             }
             .cta {
-                margin-top: $space-xs;
+                margin-top: var(--space-xs);
             }
         }
 
@@ -263,14 +263,14 @@
     }
 
     .logo_group {
-        @include max(bigtablet) {
+        @include max(large) {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             padding: 26px 0;
         }
-        @include min(bigtablet) {
+        @include min(large) {
             .menus_close_btn {
                 display: none; 
             }
@@ -281,13 +281,13 @@
         }
     }
     .menus_group {
-        @include max(bigtablet) {
+        @include max(large) {
             gap: 40px;
         }
-        @include max(bigtablet) {
+        @include max(large) {
             flex-direction: column;
             align-items: flex-start;
-            margin-top: $space-l;
+            margin-top: var(--space-l);
         }
     }
 
