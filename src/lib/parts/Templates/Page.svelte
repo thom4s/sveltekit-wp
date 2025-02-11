@@ -20,7 +20,7 @@
             <h1>{page.title}</h1>
             <div class="body">{@html page.content}</div>
     
-            {#if page.contenusFlexibles.contenusFlexibles }
+            {#if page.contenusFlexibles?.contenusFlexibles }
                 <Flexibles contenusFlexibles={page.contenusFlexibles?.contenusFlexibles}/>
             {/if}
         </div>
@@ -28,9 +28,6 @@
     </div>
 
 </article>
-
-
-<PushContact />
 
 
 <style lang="scss">

@@ -22,14 +22,6 @@ export async function load( {params} ) {
       posts = await getAllPosts(params.lang);
     }
 
-    if( page?.template?.templateName === 'Page Presse') {
-      posts = await getAllPressArticles(params.lang);
-    }
-
-    if( page?.template?.templateName === 'Modèle Savoir Faire') {
-      page = await getPageBySlug(params.rest, true)
-    }
-
     return {
         page,
         posts,

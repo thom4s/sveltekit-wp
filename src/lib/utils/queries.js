@@ -257,7 +257,7 @@ const string_projets = `
 	label
 	projets {
 		nodes {
-			... on Projet {
+			... on Project {
 				id
 				date
 				title
@@ -446,7 +446,7 @@ export const groupeBlocsProjets_query_string = `
 	label
 	projets {
 		nodes {
-			... on Projet {
+			... on Project {
 				id
 				date
 				title

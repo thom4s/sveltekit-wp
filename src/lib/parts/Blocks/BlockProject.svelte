@@ -3,45 +3,45 @@
     import Arrow from '../Svgs/Arrow.svelte';
 	import { fade } from 'svelte/transition';
 
-    export let projet = {};
+    export let project = {};
     export const type = '';    
 </script>
 
 
 <article class="block bloc_projet" transition:fade={{ duration: 200 }}>
-    <a class="fl-column-space gap-xs" href="{projet.uri}">
+    <a class="fl-column-space gap-xs" href="{project.uri}">
 
         <div class="fl-column-space gap-s">
-            {#if projet.informationsProjet?.tax_client }
-                {#each projet.informationsProjet.tax_client?.nodes as node}
+            {#if project.informationsProjet?.tax_client }
+                {#each project.informationsProjet.tax_client?.nodes as node}
                     <div class="caption">{node.name}</div>
                 {/each}
             {/if}
 
             <h3 class="h3 no-margin fl-vcenter gap-s">
-                {projet.title}
+                {project.title}
                 <Arrow />
             </h3>
 
             <div class="bloc_metadata fl-justify">
-                {#if projet.informationsProjet?.meta_date }
-                    <!-- <span class="caption">{projet.informationsProjet.meta_date}</span> -->
+                {#if project.informationsProjet?.meta_date }
+                    <!-- <span class="caption">{project.informationsProjet.meta_date}</span> -->
                 {/if}
 
-                {#if projet.informationsProjet?.tax_secteur }
-                    {#each projet.informationsProjet.tax_secteur.nodes as node}
+                {#if project.informationsProjet?.tax_secteur }
+                    {#each project.informationsProjet.tax_secteur.nodes as node}
                         <span class="caption">{node.name}</span>
                     {/each}
                 {/if}
 
-                {#if projet.informationsProjet?.tax_savoirfaire }
-                    {#each projet.informationsProjet.tax_savoirfaire.nodes as node}
+                {#if project.informationsProjet?.tax_savoirfaire }
+                    {#each project.informationsProjet.tax_savoirfaire.nodes as node}
                         <span class="caption">{node.name}</span>
                     {/each}
                 {/if}
 
-                {#if projet.informationsProjet?.tax_materiau }
-                    {#each projet.informationsProjet.tax_materiau.nodes as node}
+                {#if project.informationsProjet?.tax_materiau }
+                    {#each project.informationsProjet.tax_materiau.nodes as node}
                         <span class="caption">{node.name}</span>
                     {/each}
                 {/if}
@@ -49,12 +49,12 @@
             </div>
         </div>
 
-        {#if projet.featuredImage}
+        {#if project.featuredImage}
             <div class="bloc_media">   
 
                 <Image 
-                    node={projet.featuredImage.node}
-                    ratio={ projet.informationsProjet?.ratioFeaturedimg[0]}
+                    node={project.featuredImage.node}
+                    ratio={ project.informationsProjet?.ratioFeaturedimg[0]}
                 />
 
             </div>

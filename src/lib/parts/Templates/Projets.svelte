@@ -168,11 +168,11 @@
                     {minColWidth}
                     {maxColWidth}
                     {gap}
-                    let:item={projet}
+                    let:item={project}
                     bind:masonryWidth={width}
                     bind:masonryHeight={height}
                     >
-                        <BlockProject {projet}/>
+                        <BlockProject {project}/>
                 </Masonry>
             </div>
         </div>

@@ -120,3 +120,38 @@ export async function getSocialLinks( ) {
     return options;
 }
 
+
+
+export async function getPushContactContents( ) {
+    
+    const options = await fetch(PUBLIC_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            query: `
+            {
+                optionsDuSite {
+                    formulaireDeContact {
+                        contenusPushContact {
+                            fieldGroupName
+                            label
+                            text
+                            titre
+                            lien {
+                                url
+                            }
+                        }
+                    }
+                }
+            }
+            `
+            }),
+        })
+        .then(res => res.json())
+        .then(res => {
+            if( ! res.data ) return
+            return res.data.optionsDuSite.formulaireDeContact.contenusPushContact
+        });
+
+    return options;
+}

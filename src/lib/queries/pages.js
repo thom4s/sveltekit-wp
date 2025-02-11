@@ -19,7 +19,7 @@ export async function getTranslation( uri, lang ) {
               uri
             }
           }
-          ... on Projet {
+          ... on Project {
             id
             translation(language: ${lang.toUpperCase()}) {
               uri
@@ -82,28 +82,9 @@ export async function getHomePage ( lang = '' ) {
 }
 
 
-export async function getPageBySlug( uri = '', savoirfaire = false ) {
-    let query = '';
+export async function getPageBySlug( uri = '' ) {
 
-    if( savoirfaire ) {
-        query = `{
-            page(id: "${uri}", idType: URI) {
-                id
-                uri
-                title
-                content
-                date
-                modified
-                template {
-                    templateName
-                }
-                ${seo_query_string}
-                ${savoirfaire_query_string}
-            }
-        }`
-    }
-    else {
-        query = `{
+    let query = `{
             page(id: "${uri}", idType: URI) {
                 id
                 uri
@@ -118,8 +99,7 @@ export async function getPageBySlug( uri = '', savoirfaire = false ) {
                 ${flexibleContents_query_string}
                 ${stagedContents_query_string}
             }
-        }`
-    }
+    }`
 
     //console.log(query)
 
@@ -136,6 +116,7 @@ export async function getPageBySlug( uri = '', savoirfaire = false ) {
 
     return page;
 }
+
 
 
 export async function getAllPages( slug = '', lang = 'fr' ) {

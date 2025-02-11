@@ -38,10 +38,10 @@
             <h2 class="h2">{@html layout.titre}</h2>
         </div>
         <div class="mod_projects">
-            {#if layout.projets }
-                {#each layout.projets?.nodes as projet }
+            {#if layout.projects }
+                {#each layout.projects?.nodes as project }
                     <div class="mb-small">
-                        <BlockProjectPushed {projet} />
+                        <BlockProjectPushed {project} />
                     </div>
                 {/each}
             {/if}

@@ -19,13 +19,13 @@
     <h1 class="logo_container no-margin">
         <a href="/{$activeLang}" class="brand_logo fl-center gap-s" on:click={ () => logoClicked() }>
             <img src="{logo_nobaseline}" alt="Logo " />
-            <p class="tagline">Design <br>to Manufacture</p>
+            <p class="tagline"></p>
         </a>
     </h1>
     {:else}
     <a href="/{$activeLang}" class="brand_logo fl-center gap-s" on:click={ () => logoClicked() }>
         <img src="{logo_nobaseline}" alt="Logo "/>
-        <p class="tagline">Design <br>to Manufacture</p>
+        <p class="tagline"></p>
     </a>
 {/if}
 

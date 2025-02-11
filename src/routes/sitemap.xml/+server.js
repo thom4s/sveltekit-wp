@@ -12,9 +12,9 @@ export async function GET() {
 
 	const allProjets = await getAllProjects();
 	const projets = allProjets.nodes.map(
-		(projet) => `\t<url>
-		<loc>${new URL(projet.uri, PUBLIC_CANONICAL_ORIGIN).href}</loc>
-		<lastmod>${projet.modified ? projet.modified : projet.date}</lastmod>
+		(project) => `\t<url>
+		<loc>${new URL(project.uri, PUBLIC_CANONICAL_ORIGIN).href}</loc>
+		<lastmod>${project.modified ? project.modified : project.date}</lastmod>
 	</url>`
 	);
 

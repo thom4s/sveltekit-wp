@@ -5,8 +5,8 @@
     import IconArrowDown from '$lib/parts/Svgs/IconArrowDown.svelte';
     import { onMount } from 'svelte';
 
-    export let data: { projet: Promise<void>; }
-    $: ({projet, prevPage, nextPage} = data)
+    export let data: { project: Promise<void>; }
+    $: ({project, prevPage, nextPage} = data)
 
 
     // MEDIAS FOR FULLSCREEN 
@@ -64,12 +64,12 @@
 </script>
 
 
-<div class="template template-projet mb-xxlarge" data-template="projet">
+<div class="template template-project mb-xxlarge" data-template="project">
 
     <div class="">
-        {#if projet}
+        {#if project}
 
-            <article class="grid" data-id="{projet.id}" data-dbid={projet.databaseId}>
+            <article class="grid" data-id="{project.id}" data-dbid={project.databaseId}>
 
                 <div class="s_12column m_6column project_texts">
 
@@ -82,13 +82,13 @@
                             </div>
 
                             <div class="project_title">
-                                <h1 class="h2 mb-medium">{projet.title}</h1>
+                                <h1 class="h2 mb-medium">{project.title}</h1>
                             </div>
 
                             <div class="m_hide projet_media_item" data-design="full" data-ratio="verticale">
 
                                 <Image 
-                                    node={projet.featuredImage.node} 
+                                    node={project.featuredImage.node} 
                                     {parallax} 
                                     includeThis={true}
                                     on:imageClicked={ () => {
@@ -103,11 +103,11 @@
 
                                 <p>
                                     <span>Date</span>
-                                    <span class="caption">{@html projet.informationsProjet.meta_date}</span>
+                                    <span class="caption">{@html project.informationsProjet.meta_date}</span>
                                 </p>
 
-                                {#if projet.informationsProjet.tax_secteur}
-                                    {#each projet.informationsProjet.tax_secteur.nodes as node}
+                                {#if project.informationsProjet.tax_secteur}
+                                    {#each project.informationsProjet.tax_secteur.nodes as node}
                                         <p>
                                             <span>Secteur</span>
                                             <span class="caption">{node.name}</span>
@@ -115,8 +115,8 @@
                                     {/each}
                                 {/if}
                                 
-                                {#if projet.informationsProjet.tax_savoirfaire}
-                                    {#each projet.informationsProjet.tax_savoirfaire.nodes as node}
+                                {#if project.informationsProjet.tax_savoirfaire}
+                                    {#each project.informationsProjet.tax_savoirfaire.nodes as node}
                                         <p>
                                             <span>Savoir Faire</span>
                                             <span class="caption">{node.name}</span>
@@ -124,8 +124,8 @@
                                     {/each}
                                 {/if}
 
-                                {#if projet.informationsProjet.tax_materiau}
-                                    {#each projet.informationsProjet.tax_materiau.nodes as node}
+                                {#if project.informationsProjet.tax_materiau}
+                                    {#each project.informationsProjet.tax_materiau.nodes as node}
                                         <p>
                                             <span>Materiaux</span>
                                             <span class="caption">{node.name}</span>
@@ -135,7 +135,7 @@
                             </div>
 
                             <div class="project_content">
-                                {@html projet.content}
+                                {@html project.content}
                             </div>
 
                             <div class="s_hide m_show project_navigation fl-justify">
@@ -158,7 +158,7 @@
 
                             <div class="media_outer">
                                 <Image 
-                                    node={projet.featuredImage?.node} 
+                                    node={project.featuredImage?.node} 
                                     {parallax} 
                                     fullscreened={true}
                                     hoverTarget={true}
@@ -176,8 +176,8 @@
                         
                         </div>
 
-                        {#if projet.informationsProjet.visuels }
-                            {#each projet.informationsProjet.visuels as v}
+                        {#if project.informationsProjet.visuels }
+                            {#each project.informationsProjet.visuels as v}
                                 
                                 <div class="projet_media_item" data-design="{v.design}" data-ratio="{v.ratio}">
 

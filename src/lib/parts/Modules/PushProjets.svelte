@@ -55,9 +55,9 @@
             init={false}
         >
 
-            {#each pages as projet, i}
+            {#each pages as project, i}
                 <swiper-slide class="swiper-slide project" class:even={i & 1}>
-                    <BlockProject {projet} />
+                    <BlockProject {project} />
                 </swiper-slide>
             {/each}
 

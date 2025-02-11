@@ -2,10 +2,7 @@
     import Projets from '$lib/parts/Templates/Projets.svelte';
     import News from '$lib/parts/Templates/News.svelte';
     import Page from '$lib/parts/Templates/Page.svelte';
-    import SplitScreen from '$lib/parts/Templates/SplitScreen.svelte';
     import Contact from '$lib/parts/Templates/Contact.svelte';
-	import Expertise from '$lib/parts/Templates/Expertise.svelte';
-	import Presse from '$lib/parts/Templates/Presse.svelte';
     import NotFound from '$lib/parts/Navigations/NotFound.svelte';
     
     export let data: {

@@ -4,13 +4,13 @@ export async function getProjectBySlug( slug = '' ) {
     
     console.log('slug: ', slug)
 
-    const projet = await fetch(PUBLIC_API_URL, {
+    const project = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             query: `
             {
-                projet(id: "${slug}", idType: SLUG) {
+                project(id: "${slug}", idType: SLUG) {
                   id
                   excerpt
                   slug
@@ -36,10 +36,10 @@ export async function getProjectBySlug( slug = '' ) {
         .then(res => res.json())
         .then(res => {
             console.log('res: ', res)
-            return res.data.projet
+            return res.data.project
         });
 
-    return projet;
+    return project;
 }
 
 

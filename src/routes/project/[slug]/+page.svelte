@@ -2,10 +2,10 @@
 <script lang="ts">
 
     export let data: {
-        projet: Promise<void>;
+        project: Promise<void>;
     }
     $: ({page} = data)
-    $: console.log('projet: ', page)
+    $: console.log('project: ', page)
 
 </script>
 

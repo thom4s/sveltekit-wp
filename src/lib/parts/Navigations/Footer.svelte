@@ -6,20 +6,28 @@
     $: ( {menuItemsPrimary, menuItemsFooter} = $menusStore)
 
 </script>
-<footer>
-    <div class="container">
 
-        <div class="nav_group fl-justify gap-l mb-small">
-            <Menu menuItems={menuItemsPrimary} />
-            <Menu menuItems={menuItemsFooter} />
+
+<footer id="colophon" class="site-footer">
+    <div class="wrapper">
+        <div class="flex -space mb-l">
+
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo">
+                <img src="" alt="Logo">
+            </a>
+
+            <nav id="footer-navigation">
+                <Menu menuItems={menuItemsPrimary} />
+            </nav>
+
+            <nav id="footer-navigation">
+                <Menu menuItems={menuItemsFooter} />
+            </nav>
         </div>
 
-        <div class="nav_group fl-justify gap-l">
-            <SocialLinks />
-        </div>
-            
+        <p id="copyright" class="txt-center">Copyright © Website </p>
     </div>
-</footer>
+</footer><!-- #colophon -->
 
 
 
