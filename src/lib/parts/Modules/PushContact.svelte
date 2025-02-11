@@ -1,6 +1,5 @@
 <script>
     import { onMount } from "svelte";
-    import { getPushContactContents } from '$lib/queries/options.js';
     import { fade } from 'svelte/transition';
 
     import Form from "$lib/parts/Forms/Form.svelte";
@@ -8,7 +7,6 @@
     let contents, title, label, text, lien;
 
     onMount( async () => {
-        contents = await getPushContactContents();
         title = contents.titre
         label = contents.label
         text = contents.text

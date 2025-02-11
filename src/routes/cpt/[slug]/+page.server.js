@@ -1,9 +1,9 @@
-import { getProjetBySlug } from "$lib/queries/projets"
+import { getProjectBySlug } from "$lib/queries/projects"
 
 
 export async function load( {params} ) {
 
     return {
-        page: await getProjetBySlug(params.slug)
+        page: await getProjectBySlug(params.slug)
     }
 }

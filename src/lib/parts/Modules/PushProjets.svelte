@@ -1,5 +1,5 @@
 <script>
-	import BlockProjet from '$lib/parts/Blocks/BlockProjet.svelte';
+	import BlockProject from '$lib/parts/Blocks/BlockProject.svelte';
 	import { onMount } from 'svelte';
     import { register } from 'swiper/element/bundle';
 
@@ -57,7 +57,7 @@
 
             {#each pages as projet, i}
                 <swiper-slide class="swiper-slide project" class:even={i & 1}>
-                    <BlockProjet {projet} />
+                    <BlockProject {projet} />
                 </swiper-slide>
             {/each}
 

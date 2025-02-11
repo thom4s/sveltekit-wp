@@ -1,5 +1,5 @@
 import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
-import { getAllProjets } from '$lib/queries/projets';
+import { getAllProjects } from '$lib/queries/projects';
 import { getAllPages } from '$lib/queries/pages';
 import { getAllPosts } from '$lib/queries/posts';
 
@@ -10,7 +10,7 @@ export const prerender = true;
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
 
-	const allProjets = await getAllProjets();
+	const allProjets = await getAllProjects();
 	const projets = allProjets.nodes.map(
 		(projet) => `\t<url>
 		<loc>${new URL(projet.uri, PUBLIC_CANONICAL_ORIGIN).href}</loc>

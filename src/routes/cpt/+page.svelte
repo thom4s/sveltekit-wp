@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import BlockProjet from "$lib/parts/BlockProjet.svelte";
+    import BlockProject from "$lib/parts/Blocks/BlockProject.svelte";
 	import { fade } from 'svelte/transition';
     
     export let data: {
@@ -46,7 +46,7 @@
 
         <div class="s_8column">
             {#each visibleCpt as cpt }
-                <BlockProjet {cpt}/>
+                <BlockProject {cpt}/>
             {:else}
                 <p in:fade={{ delay: 200, duration: 200 }}>Aucun résultat</p>
             {/each}

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BlockProjet from "$lib/parts/Blocks/BlockProjet.svelte";
+    import BlockProject from "$lib/parts/Blocks/BlockProject.svelte";
 	import PushContact from "$lib/parts/Modules/PushContact.svelte";
     import IconFilters from '$lib/parts/Svgs/IconFilters.svelte';
     import IconArrowRight from '$lib/parts/Svgs/IconArrowRight.svelte';
@@ -172,7 +172,7 @@
                     bind:masonryWidth={width}
                     bind:masonryHeight={height}
                     >
-                        <BlockProjet {projet}/>
+                        <BlockProject {projet}/>
                 </Masonry>
             </div>
         </div>

@@ -1,8 +1,7 @@
 import { getPageBySlug } from "$lib/queries/pages"
-import { getAllProjets} from "$lib/queries/projets"
+import { getAllProjects} from "$lib/queries/projects"
 import { getAllTerms } from "$lib/queries/taxonomies"
 import { getAllPosts } from "$lib/queries/posts"
-import { getAllPressArticles } from "$lib/queries/press"
 
 import { formProcess } from '$lib/utils/utils.js'
 
@@ -14,7 +13,7 @@ export async function load( {params} ) {
     page = await getPageBySlug(params.rest)
 
     if( page?.template?.templateName === 'Projets') {
-      projets = await getAllProjets(params.lang);
+      projets = await getAllProjects(params.lang);
       secteurs = await getAllTerms('secteurs');
       savoirfaires = await getAllTerms('savoirfaires');
     }

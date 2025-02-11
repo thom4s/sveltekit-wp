@@ -41,7 +41,7 @@
             {#if layout.projets }
                 {#each layout.projets?.nodes as projet }
                     <div class="mb-small">
-                        <BlockProjetPushed {projet} />
+                        <BlockProjectPushed {projet} />
                     </div>
                 {/each}
             {/if}
