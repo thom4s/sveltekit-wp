@@ -1,11 +1,11 @@
 
-import { API_URL } from '$env/static/private';
+import { PUBLIC_API_URL } from '$env/static/private';
 
 
 
 export async function getAllTerms( taxonomie = '' ) {
     
-    const terms = await fetch(API_URL, {
+    const terms = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

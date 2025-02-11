@@ -9,6 +9,7 @@ function redirect(location, body) {
 
 export const handle = async ({ event, resolve }) => {
 
+    console.log(`########################################################`)
 	console.log(`📣 NEW REQUEST IS BEING MADE FROM ${event.url.pathname}`)
 	console.log('hooks.server.ts')
 

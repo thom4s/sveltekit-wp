@@ -34,7 +34,7 @@
             {#if type === 'image'}
                 <div class="image_container">
                     <div class="body txt-center">{#if content.caption }{@html content.caption}{/if}</div>
-                    <img src="{content.sourceUrl}" alt="{content.altText} | Anha - From Design to Manufacture">
+                    <img src="{content.sourceUrl}" alt="{content.altText}">
                 </div>
 
 
@@ -56,14 +56,14 @@
                         {#each content.nodes as img }
                             <swiper-slide class="swiper-slide">
                                 <div class="body">{@html img.caption}</div>
-                                <img src="{img.sourceUrl}" alt="{img.altText} | Anha - From Design to Manufacture">
+                                <img src="{img.sourceUrl}" alt="{img.altText}">
                             </swiper-slide>
                         {/each}
                     {:else}
                         {#each content as src }
                             <swiper-slide class="swiper-slide">
                                 <div class="body">{#if src.caption }{@html src.caption}{/if}</div>
-                                <img src="{src.sourceUrl}" alt="{src.altText} | Anha - From Design to Manufacture">
+                                <img src="{src.sourceUrl}" alt="{src.altText}">
                             </swiper-slide>
                         {/each}
                     {/if}

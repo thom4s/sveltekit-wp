@@ -3,7 +3,7 @@
  * @param {string} title
  */
 export default function (title) {
-	return `${title} – Anha`;
+	return `${title} – Website`;
 }
 
 export const basic_fields_string = `

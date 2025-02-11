@@ -43,6 +43,7 @@ export async function getTranslation( uri, lang ) {
         .then(res => res.json())
         .then(res => {
             console.log('getTranslation res: ', res)
+            if( ! res.data ) return {};
             return res.data.nodeByUri
         });
     
@@ -72,6 +73,8 @@ export async function getHomePage ( lang = '' ) {
         })
         .then(res => res.json())
         .then(res => {
+            console.log('res', res);
+            if( ! res.data ) return {};
             return res.data.nodeByUri
         });
 
@@ -127,6 +130,7 @@ export async function getPageBySlug( uri = '', savoirfaire = false ) {
         })
         .then(res => res.json())
         .then(res => {
+            if( ! res.data ) return {};
             return res.data.page
         });
 
@@ -157,6 +161,7 @@ export async function getAllPages( slug = '', lang = 'fr' ) {
         })
         .then(res => res.json())
         .then(res => {
+            if( ! res.data ) return {};
             return res.data.pages
         });
 

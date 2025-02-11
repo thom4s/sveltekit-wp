@@ -1,12 +1,10 @@
-
-import { API_URL } from '$env/static/private';
-
+import { PUBLIC_API_URL } from "$env/static/public";
 
 export async function getCptBySlug( slug = '' ) {
     
     console.log('slug: ', slug)
 
-    const projet = await fetch(API_URL, {
+    const projet = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -47,7 +45,7 @@ export async function getCptBySlug( slug = '' ) {
 
 export async function getAllCpt( ) {
     
-    const cpt = await fetch(API_URL, {
+    const cpt = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

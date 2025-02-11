@@ -21,7 +21,9 @@ Everything you need to build a Svelte + Headless Wordpress, powered by [`create-
 
 ## Headless WP
 
-* Plugin recommended : WPGraphQL, WPGraphQL for ACF, Advanced Custom Fields PRO, Classic Editor
+* MUSTHAVE Plugins : WPGraphQL, WPGraphQL for ACF, Advanced Custom Fields PRO, Classic Editor, Polylang
+
+* Polylang is set with one lang min. And set with the slug /fr for all langs
 
 * Classic Editor : because the API may not work if you change the Wesite URL. Gutenberg is working throuh th API...
 

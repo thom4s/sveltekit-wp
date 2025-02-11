@@ -1,65 +1,18 @@
-import { API_URL } from '$env/static/private';
-
 import { getSeoSchema } from '$lib/queries/seo';
+import { getMenuItems, getLangs, getSocialLinks } from '$lib/queries/options';
 
 
-export async function load() {
+export async function load( { url, params } ) {
+	const { pathname } = url;
 
     return {
-        
+        pathname,
         seoConfig: await getSeoSchema(),
-
-
-        menuItems: await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                query: `
-                    {
-                        menu(id: "primary_menu", idType: LOCATION) {
-                        id
-                            menuItems {
-                                nodes {
-                                    label
-                                    url
-                                    path
-                                }
-                            }
-                        }
-                    }
-                `
-                }),
-            })
-            .then(res => res.json())
-            .then(res => {
-                return res.data.menu.menuItems
-            }),
-
-
-        menuItemsSecondary: await fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    query: `
-                        {
-                            menu(id: "footer_menu", idType: LOCATION) {
-                            id
-                                menuItems {
-                                    nodes {
-                                        label
-                                        url
-                                        path
-                                    }
-                                }
-                            }
-                        }
-                    `
-                    }),
-                })
-                .then(res => res.json())
-                .then(res => {
-                    return res.data.menu.menuItems
-                }),
-
+        langs: await getLangs(),
+        socialLinks: await getSocialLinks(),
+        currentLang: params.lang,
+        menuItemsPrimary: await getMenuItems(params.lang, 'header_menu'),
+        menuItemsTop: await getMenuItems(params.lang, 'header_top'),
+        menuItemsFooter: await getMenuItems(params.lang, 'footer_menu')
     }
 }

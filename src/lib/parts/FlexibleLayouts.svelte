@@ -3,14 +3,9 @@
     import PushNews from '$lib/parts/Modules/PushNews.svelte';
     import PushPages from '$lib/parts/Modules/PushPages.svelte';
     import PushProjets from './Modules/PushProjets.svelte';
-    import References from '$lib/parts/Modules/References.svelte';
     import RichText from '$lib/parts/Modules/RichText.svelte';
-    import TabExpertise from '$lib/parts/Modules/TabExpertise.svelte';
     import Video from '$lib/parts/Modules/Video.svelte';
     import BlockTVT from '$lib/parts/Blocks/BlockTVT.svelte';
-    import BlockProjetPushed from '$lib/parts/Blocks/BlockProjetPushed.svelte';
-    import BlockCollaborateur from '$lib/parts/Blocks/BlockCollaborateur.svelte';
-    import HPCover from '$lib/parts/Modules/HPCover.svelte';
 
     export let layout = '';
     export let smallContact = false;
@@ -55,17 +50,11 @@
             <a class="link" href="{layout.link?.nodes[0].uri}">{@html layout.label}</a>
         </div>
     </section>
-    
-{:else if layout.__typename === 'ContenusFlexiblesContenusFlexiblesReferencesLayout'}
-    <References titre={layout.titre} ligneLogos={layout.ligneLogos} />
 
 
 {:else if layout.__typename === 'ContenusFlexiblesContenusFlexiblesRichtextLayout'}
     <RichText titre={layout.titre} contentOne={layout.contentOne} contentTwo={layout.contentTwo} />
 
-
-{:else if layout.__typename === 'ContenusFlexiblesContenusFlexiblesTabExpertiseLayout'}
-    <TabExpertise titre={layout.titre} contenus={layout.contenus} />
 
 
 {:else if layout.__typename === 'ContenusFlexiblesContenusFlexiblesVideoLayout'}
@@ -80,14 +69,6 @@
     <BlockTVT visuel={layout.visuel} ratio={layout.img_ratio} design={layout.design} texte={layout.texte} />
 
 
-{:else if layout.__typename === `ContenusFlexiblesStagedStagesContenusFlexiblesCollaborateursLayout`} 
-    <BlockCollaborateur {layout} />
-
-
-{:else if layout.__typename === `ContenusFlexiblesContenusFlexiblesHpCoverLayout`} 
-    <HPCover cover_text={layout.cover_text} left_title={layout.left_title} right_title={layout.right_title}  cover_img={layout.cover_img.node.sourceUrl} />
-
-    
 {/if}
 
 

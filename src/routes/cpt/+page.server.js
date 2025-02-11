@@ -1,5 +1,5 @@
 
-import { getAllCpt} from "$lib/queries/cpt"
+import { getAllCpt} from "$lib/queries/projets"
 import { getAllTerms } from "$lib/queries/taxonomies"
 import { getPageBySlug } from "$lib/queries/pages"
 

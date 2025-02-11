@@ -87,7 +87,7 @@ export async function getFormsParams( ) {
         .then(res => res.json())
         .then(res => {
             if( ! res.data ) return
-            return res.data.optionsDuSite.formulaireDeContact
+            return res.data.optionsDuSite?.formulaireDeContact
         });
 
     return options;

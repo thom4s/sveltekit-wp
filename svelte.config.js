@@ -6,9 +6,9 @@ const config = {
 	preprocess: preprocessor({
 		scss: {
 			prependData: `
-				@import './src/lib/scss/config/variables.scss';
-				@import './src/lib/scss/config/mixins.scss';
-				@import './src/lib/scss/config/responsive.scss';
+				@import './src/lib/assets/scss/config/variables.scss';
+				@import './src/lib/assets/scss/config/mixins.scss';
+				@import './src/lib/assets/scss/config/responsive.scss';
 			`
 		}
 	}),	

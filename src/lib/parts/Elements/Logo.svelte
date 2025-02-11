@@ -1,7 +1,7 @@
 <script>
     import { activeLang } from "$lib/config/website";
     import { page } from '$app/stores';
-	import logo_nobaseline from '$lib/assets/logo_anha_nobaseline.png';
+	import logo_nobaseline from '$lib/assets/logo.png';
 
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -18,13 +18,13 @@
 {#if $page.url.pathname === '/fr' || $page.url.pathname === '/en' }
     <h1 class="logo_container no-margin">
         <a href="/{$activeLang}" class="brand_logo fl-center gap-s" on:click={ () => logoClicked() }>
-            <img src="{logo_nobaseline}" alt="Logo Anha - From Design to Manufacture" />
+            <img src="{logo_nobaseline}" alt="Logo " />
             <p class="tagline">Design <br>to Manufacture</p>
         </a>
     </h1>
     {:else}
     <a href="/{$activeLang}" class="brand_logo fl-center gap-s" on:click={ () => logoClicked() }>
-        <img src="{logo_nobaseline}" alt="Logo Anha - From Design to Manufacture"/>
+        <img src="{logo_nobaseline}" alt="Logo "/>
         <p class="tagline">Design <br>to Manufacture</p>
     </a>
 {/if}
