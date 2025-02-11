@@ -203,5 +203,7 @@
 </script>
 
 <svelte:head>
+	<!-- SchemaOrg -->
 	{@html jsonLdScript}
+	<!-- SEO SchemaOrg -->
 </svelte:head>

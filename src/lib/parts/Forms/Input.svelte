@@ -5,39 +5,48 @@
     export let value = '';
     export let placeholder = '';
     export let required = false;
+    export let size = 'full';
+
 </script>
 
 
-<p>
-    <label for={name}>{label}<br>
-        <span class="" data-name="{name}">
-            {#if type === 'file' }
-                <input 
-                    class="" 
-                    class:input-required={required} 
-                    autocomplete="name" 
-                    aria-required="{required}" 
-                    aria-invalid="false" 
-                    value="{value}" 
-                    type="{type}" 
-                    placeholder={placeholder}
-                    name="{name}"
-                    accept="audio/*,video/*,image/*"
-                >
-            {:else}
-                <input 
-                    class="" 
-                    class:input-required={required} 
-                    autocomplete="name" 
-                    aria-required="{required}" 
-                    aria-invalid="false" 
-                    value="{value}" 
-                    type="{type}" 
-                    placeholder={placeholder}
-                    name="{name}"
-                >
-            {/if}
 
-        </span> 
+<div class={'input-group ' + size} data-name="{name}">
+
+    {#if type === 'file' }
+        <input 
+            class="" 
+            class:input-required={required} 
+            autocomplete="name" 
+            aria-required="{required}" 
+            aria-invalid="false" 
+            value="{value}" 
+            type="{type}" 
+            name="{name}"
+            accept="audio/*,video/*,image/*"
+        >
+    {:else}
+        <input 
+            class={"body " + (type === 'submit' ? 'btn dark' : '')} 
+            class:input-required={required} 
+            autocomplete="name" 
+            aria-required="{required}" 
+            aria-invalid="false"
+            required={false}
+            placeholder=" "
+            value="{value}" 
+            type="{type}" 
+            name="{name}"
+        >
+    {/if}
+    <label class="caption" for={name}> 
+        {placeholder}
     </label>
-</p>
+
+</div>
+
+
+<style lang="scss">
+
+
+</style>

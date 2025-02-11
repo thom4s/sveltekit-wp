@@ -1,0 +1,42 @@
+/*--------------------------------------------------------------
+Responsive
+--------------------------------------------------------------*/
+
+@mixin min($point) { // x >
+	@if $point == desktop {
+	  	@media (min-width: $desktop_breakpoint) { @content; }
+	}
+	@else if $point == bigtablet {
+		@media (min-width: $bigtablet_breakpoint) { @content; }
+	}
+	@else if $point == tablet {
+	  	@media (min-width: $tablet_breakpoint) { @content; }
+	}
+	@else if $point == mobile {
+		@media (min-width: $mobile_breakpoint) { @content; }
+	}
+	@else if $point == minimal {
+		@media (min-width: $minimal_breakpoint) { @content; }
+	}
+	@else {
+	  	@media (min-width: $point) { @content; }
+	}
+}
+  
+@mixin max($point) { // < x
+	@if $point == desktop {
+		@media (max-width: $desktop_breakpoint) { @content; }
+	}
+	@else if $point == bigtablet {
+	  	@media (max-width: $bigtablet_breakpoint) { @content; }
+	}
+	@else if $point == tablet {
+	  	@media (max-width: $tablet_breakpoint) { @content; }
+	}
+	@else if $point == mobile {
+	  	@media (max-width: $mobile_breakpoint) { @content; }
+	}
+	@else {
+	  	@media (max-width: $point) { @content; }
+	}
+}

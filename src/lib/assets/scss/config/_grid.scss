@@ -1,0 +1,64 @@
+html {
+    scroll-snap-type: y mandatory;
+}
+
+
+/*--------------------------------------------------------------
+Grid
+--------------------------------------------------------------*/
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    display: grid;
+//    grid-template-columns: repeat($cols, minmax(0, calc(1fr - 20px) ) );
+    grid-template-columns: repeat($cols, 1fr);
+    grid-row-gap: $gutter;
+    grid-column-gap: $gutter;
+}
+
+
+.m_last {
+    grid-row-end: $cols;
+}
+
+
+[class$='column'] {
+    max-width: 100%;
+    display: inline-grid;
+}
+
+
+@mixin parse-columns($suffix: ''){
+
+    .#{$suffix}_0col {
+        display: none;
+    }
+    .#{$suffix}_hide {
+        display: none;
+    }   
+    .#{$suffix}_show {
+        display: flex;
+    }      
+    @for $i from 1 through $cols {
+
+        .#{$suffix}_#{$i}column {
+            grid-column: span #{$i};
+
+            .grid {
+                grid-template-columns: repeat($i, 1fr);
+            }
+        }
+    }
+}
+
+
+@include min(minimal) {
+    @include parse-columns('s');
+}
+@include min(tablet) {
+    @include parse-columns('m');
+}
+@include min(bigtablet) {
+    @include parse-columns('l');
+}

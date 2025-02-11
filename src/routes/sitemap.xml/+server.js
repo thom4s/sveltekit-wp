@@ -1,70 +1,47 @@
-import website from '$lib/config/website';
-import { error } from '@sveltejs/kit';
+import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
+import { getAllProjets } from '$lib/queries/projets';
+import { getAllPages } from '$lib/queries/pages';
+import { getAllPosts } from '$lib/queries/posts';
 
 export const prerender = true;
 
-const { siteUrl } = $website;
-
-const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>
-<urlset
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
-  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-  xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
-  xmlns:pagemap="http://www.google.com/schemas/sitemap-pagemap/1.0"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
-	>
-
-	${pages
-		.map(
-			(element) => `
-	<url>
-	  <loc>${element}</loc>
-		<lastmod>${`${process.env.VITE_BUILD_TIME}`}</lastmod>
-	</url>`,
-		)
-		.join('\n')}
-
-	${posts
-		.map((element) => {
-			const { lastUpdated, slug } = element;
-			return `
-	<url>
-	  <loc>${siteUrl}/${slug}</loc>
-		<lastmod>${`${new Date(lastUpdated).toISOString()}`}</lastmod>
-	</url>
-	`;
-		})
-		.join('')}
-</urlset>`;
+// Array returned from GitHub API can be empty.
 
 /** @type {import('./$types').RequestHandler} */
-export async function GET({ setHeaders }) {
-	try {
-		const mdModules = import.meta.glob('../../content/blog/**/index.md');
-		const posts = await Promise.all(
-			Object.keys(mdModules).map(async (path) => {
-				const slug = path.split('/').at(-2);
-				const { metadata } = await mdModules[path]();
-				const { lastUpdated } = metadata;
-				return { lastUpdated, slug };
-			}),
-		);
+export async function GET() {
 
-		const pagePaths = ['', '/contact'];
-		const pages = pagePaths.map((element) => `${siteUrl}${element}`);
+	const allProjets = await getAllProjets();
+	const projets = allProjets.nodes.map(
+		(projet) => `\t<url>
+		<loc>${new URL(projet.uri, PUBLIC_CANONICAL_ORIGIN).href}</loc>
+		<lastmod>${projet.modified ? projet.modified : projet.date}</lastmod>
+	</url>`
+	);
 
-		setHeaders({
-			'Cache-Control': 'max-age=0, s-max-age=600',
-			'Content-Type': 'application/xml',
-		});
 
-		return new Response(render(pages, posts));
-	} catch (err) {
-		console.error(`Error in sitemap.xml: ${err}`);
-		throw error(500, err);
-	}
+	const allPosts = await getAllPosts();
+	console.log(allPosts)
+	const news = allPosts.edges.map(
+		(news) => `\t<url>
+		<loc>${new URL(news.node.uri, PUBLIC_CANONICAL_ORIGIN).href}</loc>
+		<lastmod>${news.node.modified ? news.node.modified : news.node.date}</lastmod>
+	</url>`
+	);
+
+	
+	let contents = [...projets, news];
+
+
+
+	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${contents.join('\n')}
+</urlset>`;
+
+	return new Response(sitemap, {
+		headers: {
+			'Cache-Control': 'max-age=0, s-maxage=3600',
+			'Content-Type': 'application/xml'
+		}
+	});
 }

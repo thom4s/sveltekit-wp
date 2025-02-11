@@ -1,10 +1,10 @@
 
-import { API_URL } from '$env/static/private';
+import { PUBLIC_API_URL } from "$env/static/public";
 
 
 export async function getSeoSchema( ) {
     
-    const seoConfig = await fetch(API_URL, {
+    const seoConfig = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -35,22 +35,22 @@ export async function getSeoSchema( ) {
                         siteName
                         siteUrl
                         logo {
-                        sourceUrl
-                        seo {
-                            canonical
-                            metaDesc
-                            metaKeywords
-                            opengraphAuthor
-                            opengraphDescription
-                            opengraphModifiedTime
-                            opengraphPublishedTime
-                            opengraphPublisher
-                            opengraphSiteName
-                            opengraphTitle
-                            opengraphType
-                            opengraphUrl
-                            title
-                        }
+                            sourceUrl
+                            seo {
+                                canonical
+                                metaDesc
+                                metaKeywords
+                                opengraphAuthor
+                                opengraphDescription
+                                opengraphModifiedTime
+                                opengraphPublishedTime
+                                opengraphPublisher
+                                opengraphSiteName
+                                opengraphTitle
+                                opengraphType
+                                opengraphUrl
+                                title
+                            }
                         }
                     }
                 }
@@ -65,7 +65,6 @@ export async function getSeoSchema( ) {
         })
         .then(res => res.json())
         .then(res => {
-            console.log('res: ', res)
             return res.data
         });
 

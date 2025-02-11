@@ -14,6 +14,7 @@
 </script>
 
 <svelte:head>
+	<!-- SEO Open Graph -->
 	<meta property="og:site_name" content={siteTitle} />
 	<meta property="og:locale" content={ogLanguage} />
 	<meta property="og:url" content={url} />
@@ -38,4 +39,5 @@
 		<meta property="article:published_time" content={datePublished} />
 		<meta property="article:modified_time" content={lastUpdated} />
 	{/if}
+	<!-- END SEO Open Graph -->
 </svelte:head>

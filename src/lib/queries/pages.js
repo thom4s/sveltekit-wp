@@ -1,31 +1,77 @@
 
-import { API_URL } from '$env/static/private';
+import { PUBLIC_API_URL } from "$env/static/public";
+import { seo_query_string, contentType_fields_string, basic_fields_string, featuredImage_fields_string, taxonomies_fields_string, flexibleContents_query_string, savoirfaire_query_string, stagedContents_query_string } from '$lib/utils/queries';
 
 
 
-export async function getHomePage () {
-    const query = `{
-        nodeByUri(uri: "/") {
-          __typename
-          ... on ContentType {
-            id
-            name
-          }
+export async function getTranslation( uri, lang ) {
+    
+    if( uri === "/fr" ) {
+        uri = '/';
+    }
+    const query = `
+    {
+        nodeByUri(uri: "${uri}") {
+          id
           ... on Page {
             id
-            title
+            translation(language: ${lang.toUpperCase()}) {
+              uri
+            }
+          }
+          ... on Projet {
+            id
+            translation(language: ${lang.toUpperCase()}) {
+              uri
+            }
+          }
+          ... on Post {
+            id
+            translation(language: ${lang.toUpperCase()}) {
+              uri
+            }
           }
         }
-      }`
-    
-    const page = await fetch(API_URL, {
+      }
+    `
+
+    const pageTranslated = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({query}),
         })
         .then(res => res.json())
         .then(res => {
-            console.log('res: ', res)
+            console.log('getTranslation res: ', res)
+            return res.data.nodeByUri
+        });
+    
+    return pageTranslated;
+}
+
+
+export async function getHomePage ( lang = '' ) {
+
+    const uri = lang === 'en' ? '/en/homepage/' : '/'
+
+    const query = `{
+        nodeByUri(uri: "${uri}") {
+            id
+            ... on Page {
+                ${basic_fields_string}
+                ${seo_query_string}
+                ${flexibleContents_query_string}
+            }
+        }
+    }`
+    
+    const page = await fetch(PUBLIC_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({query}),
+        })
+        .then(res => res.json())
+        .then(res => {
             return res.data.nodeByUri
         });
 
@@ -33,74 +79,76 @@ export async function getHomePage () {
 }
 
 
-export async function getPageBySlug( uri = '' ) {
-    
-    const query = `{
-        page(id: "${uri}", idType: URI) {
-            id
-            uri
-            title
-            content
-        }
-    }`
-    console.log(query)
+export async function getPageBySlug( uri = '', savoirfaire = false ) {
+    let query = '';
 
-    const page = await fetch(API_URL, {
+    if( savoirfaire ) {
+        query = `{
+            page(id: "${uri}", idType: URI) {
+                id
+                uri
+                title
+                content
+                date
+                modified
+                template {
+                    templateName
+                }
+                ${seo_query_string}
+                ${savoirfaire_query_string}
+            }
+        }`
+    }
+    else {
+        query = `{
+            page(id: "${uri}", idType: URI) {
+                id
+                uri
+                title
+                content
+                date
+                modified
+                template {
+                    templateName
+                }
+                ${seo_query_string}
+                ${flexibleContents_query_string}
+                ${stagedContents_query_string}
+            }
+        }`
+    }
+
+    //console.log(query)
+
+    const page = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({query}),
         })
         .then(res => res.json())
         .then(res => {
-            console.log('res: ', res)
             return res.data.page
         });
 
     return page;
 }
 
-export async function getContactPage( uri = 'contact' ) {
+
+export async function getAllPages( slug = '', lang = 'fr' ) {
     
-    const query = `{
-        page(id: "${uri}", idType: URI) {
-            id
-            uri
-            title
-            content
-        }
-    }`
-    console.log(query)
-
-    const page = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({query}),
-        })
-        .then(res => res.json())
-        .then(res => {
-            console.log('res: ', res)
-            return res.data.page
-        });
-
-    return page;
-}
-
-export async function getAllPages( slug = '' ) {
-    
-    console.log('slug: ', slug)
-
-    const pages = await fetch(API_URL, {
+    const pages = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             query: `
                 {
-                    pages {
+                    pages(where: {language: ${lang} }) {
                         nodes {
                             excerpt
                             id
                             slug
                             title
+                            ${seo_query_string}
                         }
                     }
                 }

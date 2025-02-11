@@ -1,0 +1,23 @@
+@mixin wrapper {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+@mixin block {
+    background-color: $light-bg;
+    border: 1px solid #4a67831c;
+    border-radius: $radius-l;
+}
+
+@mixin container {
+    width: 90%;
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    @include container;
+}

@@ -4,6 +4,7 @@
 
     import Input from '$lib/parts/Forms/Input.svelte';
     import Textarea from '$lib/parts/Forms/Textarea.svelte';
+	import Checkbox from '$lib/parts/Forms/Checkbox.svelte';
 
     let loading = false; 
 </script>
@@ -11,7 +12,6 @@
 <form 
     method="POST"
     action="?/contact"
-    enctype="multipart/form-data"
     class:loading={loading}
     use:enhance={() => {
         loading = true;
@@ -26,17 +26,37 @@
         };
     }}>
 
-    <Input type="text" placeholder="Thomas" name="name" />
-    <Input type="email" placeholder="nom@domaine.fr" name="mail" />
-    <Input type="file" name="file" />
-    <Textarea name="message" />
-    <Input type="submit" value="Envoyer" />
+        <Input type="text" placeholder="Nom" name="firstname" size="half" required={true} />
+        <Input type="text" placeholder="Prénom" name="lastname" size="half" required={true} />
+
+        <Input type="text" placeholder="Adresse" name="adresse" size="full" required={false}/>
+
+        <Input type="text" placeholder="Code postal" name="code postal" size="half" required={false}/>
+        <Input type="text" placeholder="Ville" name="Ville" size="half" required={true}/>
+
+        <Input type="text" placeholder="Téléphone" name="telephone" size="half" required={true}/>
+        <Input type="email" placeholder="e-mail" name="mail" size="half" required={true}/>
+
+        <Textarea name="message" placeholder="Votre message" size="full" required={true}/>
+
+        <Checkbox label="J’accepte que mes données soient récupérées pour le traitement de ma demande." name="acceptance" />
+
+        <Input type="submit" value="Envoyer" />
 </form>
 
-<style>
+<style lang="scss">
     form {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        gap: $space-m;
         transition: all .2s;
     }
+
+    // :global(input[type="submit"]) {
+    //     width: unset !important;
+    // }
+
     .loading {
         opacity: .5;
     }

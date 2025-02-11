@@ -1,45 +1,27 @@
 
-import { API_URL } from '$env/static/private';
+import { PUBLIC_API_URL } from "$env/static/public";
+import { seo_query_string, contentType_fields_string, basic_fields_string, featuredImage_fields_string, author_fields_string } from '$lib/utils/queries';
 
 
 
 export async function getPostBySlug( slug = '' ) {
     
-    console.log('slug: ', slug)
+    const query = `
+        {
+            post(id: "${slug}", idType: SLUG ) {
+                ${basic_fields_string}
+                ${featuredImage_fields_string}
+                ${author_fields_string}
+                ${contentType_fields_string}
+                ${seo_query_string}
+            }
+        }
+    `
 
-    const post = await fetch(API_URL, {
+    const post = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            query: `
-                {
-                    post(id: "article-un", idType: SLUG) {
-                        id
-                        content
-                        date
-                        featuredImage {
-                            node {
-                                caption
-                                altText
-                                fileSize
-                                link
-                                sizes
-                                srcSet
-                                sourceUrl
-                            }
-                        }
-                        postId
-                        slug
-                        title
-                        author {
-                            node {
-                              name
-                            }
-                        }
-                    }
-                }
-            `
-            }),
+        body: JSON.stringify({ query }),
         })
         .then(res => res.json())
         .then(res => {
@@ -50,22 +32,43 @@ export async function getPostBySlug( slug = '' ) {
 }
 
 
-export async function getAllPosts( slug = '' ) {
+export async function getAllPosts( lang = 'fr', length = 10 ) {
     
-    console.log('slug: ', slug)
-
-    const posts = await fetch(API_URL, {
+    const posts = await fetch(PUBLIC_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             query: `
                 {
-                    posts {
-                        nodes {
-                            excerpt
-                            id
-                            slug
-                            title
+                    posts( first: ${length}, where: {language: ${lang.toUpperCase()} }) {
+                        pageInfo {
+                            startCursor
+                            endCursor
+                            hasNextPage
+                            hasPreviousPage
+                            total
+                        }
+                        edges {
+                            cursor
+                            node {
+                                ${basic_fields_string}
+                                ${seo_query_string}
+                                ${featuredImage_fields_string}
+                                informationsNews {
+                                    lien
+                                    lieu
+                                    labelDuLien
+                                    date
+                                    video
+                                    plateforme
+                                    galery {
+                                        nodes {
+                                            sourceUrl
+                                            srcSet
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

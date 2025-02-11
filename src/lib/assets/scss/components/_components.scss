@@ -1,0 +1,17 @@
+
+@import 'modules';
+
+
+#masthead.out {
+    transform: translateY(-110%);
+}
+
+
+
+:not(.mod_pushnews) > .block_post {
+    border-top: 1px solid;
+    padding: $space-m 0;
+}
+
+
+
